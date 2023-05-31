@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Livros</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/cadastrolivros.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
+  </style>
+
+  <!-- Link para a biblioteca Boxicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      margin-top: 50px;
+      width: 90%;
+      height: 70%;
+      border-radius: 10px;
+      background: white;
+    }
+
+    .header {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: auto 12px;
+    }
+
+    .header span {
+      font-weight: 900;
+      font-size: 20px;
+      word-break: break-all;
+    }
+
+    #new {
+      font-size: 16px;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      background-color: rgb(57, 57, 226);
+    }
+
+    .divTable {
+      padding: 10px;
+      width: auto;
+      height: inherit;
+      overflow: auto;
+    }
+
+    .divTable::-webkit-scrollbar {
+      width: 12px;
+      background-color: whitesmoke;
+    }
+
+    .divTable::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-color: darkgray;
+    }
+
+    table {
+      width: 100%;
+      border-spacing: 10px;
+      word-break: break-all;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background-color: whitesmoke;
+    }
+
+    tr {
+font-size: 15px;
+      border-bottom: 1px solid rgb(238, 235, 235) !important;
+    }
+
+    tbody tr td {
+     
+      vertical-align: text-top;
+      padding: 6px;
+      max-width: 50px;
+    }
+
+    thead tr th {
+      padding: 5px;
+      text-align: start;
+      margin-bottom: 50px;
+    }
+
+    tbody tr {
+      margin-bottom: 50px;
+    }
+
+    thead tr th.acao {
+      width: 100px !important;
+      text-align: center;
+    }
+
+    tbody tr td.acao {
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        font-size: 10px;
+      }
+
+      .header span {
+        font-size: 15px;
+      }
+
+      #new {
+        padding: 5px;
+        font-size: 10px;
+      }
+
+      thead tr th.acao {
+        width: auto !important;
+      }
+
+      td button i {
+        font-size: 20px !important;
+      }
+
+      td button i:first-child {
+        margin-right: 0;
+      }
+
+      .modal {
+        width: 90% !important;
+      }
+
+      .modal label {
+        font-size: 12px !important;
+      }
+    }
+
+    .modal-container {
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal {
+
+      width: 50%;
+      display: grid;
+      place-items: center;
+      margin-left: 50vh;
+    }
+
+    form {
+      background-color: rgb(255, 255, 255);
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .modal label {
+      font-size: 14px;
+      width: 100%;
+    }
+
+    .modal input {
+      width: 100%;
+      outline: none;
+      padding: 5px 10px;
+      width: 100%;
+      margin-bottom: 20px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .modal button {
+      width: 100%;
+      margin: 10px auto;
+      outline: none;
+      border-radius: 20px;
+      padding: 5px 10px;
+      width: 100%;
+      border: none;
+      background-color: rgb(57, 57, 226);
+      color: white;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    .active .modal {
+      animation: modal .4s;
+    }
+
+    @keyframes modal {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -60px, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    td button {
+      border: none;
+      outline: none;
+      background: transparent;
+    }
+
+    td button i {
+      font-size: 25px;
+    }
+
+    td button i:first-child {
+      margin-right: 10px;
+    }
+  </style>
+
+
+</head>
+<!--cabeçario-->
+
+<body>
+  <img src="../img/biblioteca-de-desfoque-abstrato-prateleiras-de-livros-desfocadas-e-salao-generative-ai_791316-6098.avif" class="imgFundo" alt="">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <h3 class="logo">SOLUTION</h3>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <h3 class="usuario">Usuário: <label for="" id="loginUsuario" style="color: white;">joao</label></h3>
+        </div>
+        <a href="../login/login.html"><button class="sair" id="sair" onclick="sair()">Sair</button></a>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+  <main class="">
+
+    <div class="row">
+
+      <div class="col-md-2 t">
+        <div class="h">
+          <img src="../img/logob-removebg-preview.png" class="logob" alt="">
+          <a href="../index.html"> <button type="button" class=" bntPag mx-3">Início</button></a>
+          <a href="cadastrolivros.html"><button type="button" class=" bntPag  mx-3">Acervo</button></a>
+          <a href="cadastroaluno.html"><button type="button" class=" bntPag mx-3">Alunos</button></a>
+          <a href="emprestimo.html"><button type="button" class=" bntPag btn-info mx-3">Empréstimo</button></a>
+          <a href=""><button type="button" class=" bntPag mx-3">Atríbuidos</button></a>
+          <a href=""><button type="button" class="bntPag  mx-3">Pendentes</button></a>
+          <a href=""><button type="button" class=" bntPag btn-info mx-3">Entregues</button></a>
+        </div>
+      </div>
+      <!--conteudo principal-->
+      <div id="principal" class="col-md-5 r">
+        <div class="container">
+          <h1 id="sistema">Acervo/Cadastro de Livros</h1>
+          <div class="header">
+            <span>Pesquisar: <input type="text" style="width: 260px; height: 30px;"></span>
+            <button onclick="openModal()" id="new">Cadastrar</i></button>
+          </div>
+
+          <div class="divTable">
+            <table>
+              <thead>
+                <tr>
+                  <th>TÍTULO DO LIVRO*</th>
+                  <th>AUTOR DO LIVRO*</th>
+                  <th>EDITOR *</th>
+                  <th>ANO*</th>
+                  <th>OBSERVAÇÃO *</th>
+                  <th>DATA DE CADASTRO*</th>
+                  <th class="acao">EDITAR</th>
+                  <th class="acao">EXCLUIR</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="modal-container">
+            <div class="modal">
+              <form>
+                <label for="m-titulo">TÍTULO DO LIVRO</label>
+                <input id="m-titulo" type="text" required />
+
+                <label for="m-autor">AUTOR</label>
+                <input id="m-autor" type="text" required />
+
+                <label for="m-editor">EDITOR</label>
+                <input id="m-editor" type="text" required />
+
+                <label for="m-anoLivro">ANO DO LIVRO</label>
+                <input id="m-anoLivro" type="text" required />
+
+                <label for="m-obs">OBSERVAÇÃO</label>
+                <input id="m-obs" type="text" required />
+
+                <label for="m-dataCadastro">DATA DE CADASTRO</label>
+                <input id="m-dataCadastro" type="date" required />
+                <button id="btnSalvar">SALVAR</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <!--script paginas-->
+  <script>
+    const modal = document.querySelector('.modal-container')
+    const tbody = document.querySelector('tbody')
+    const stitulo = document.querySelector('#m-titulo')
+    const sautor = document.querySelector('#m-autor')
+    const seditor = document.querySelector('#m-editor')
+    const sanoLivro = document.querySelector('#m-anoLivro')
+    const sobs = document.querySelector('#m-obs')
+    const sdataCadastro = document.querySelector('#m-dataCadastro')
+    const btnSalvar = document.querySelector('#btnSalvar')
+
+    let itens
+    let id
+
+    function openModal(edit = false, index = 0) {
+      modal.classList.add('active')
+
+      modal.onclick = e => {
+        if (e.target.className.indexOf('modal-container') !== -1) {
+          modal.classList.remove('active')
+        }
+      }
+
+      if (edit) {
+        stitulo.value = itens[index].titulo
+        sautor.value = itens[index].autor
+        seditor.value = itens[index].editor
+        sanoLivro.value = itens[index].anoLivro
+        sobs.value = itens[index].obs
+        sdataCadastro.value = itens[index].dataCadastro
+        id = index
+      } else {
+        stitulo.value = ''
+        sautor.value = ''
+        seditor.value = ''
+        sanoLivro.value = ''
+        sobs.value = ''
+        sdataCadastro.value = ''
+      }
+
+    }
+
+    function editItem(index) {
+
+      openModal(true, index)
+    }
+
+    function deleteItem(index) {
+      itens.splice(index, 1)
+      setItensBD()
+      loadItens()
+    }
+
+    function insertItem(item, index) {
+      let tr = document.createElement('tr')
+
+      tr.innerHTML = `
+        <td>${item.titulo}</td>
+        <td>${item.autor}</td>
+        <td>${item.editor}</td>
+        <td>${item.anoLivro}</td>
+        <td>${item.obs}</td>
+        <td> ${item.dataCadastro}</td>
+        <td class="acao">
+          <button onclick="editItem(${index})"><i class='bx bx-edit'></i></button>
+        </td>
+        <td class="acao">
+          <button onclick="deleteItem(${index})"><i class='bx bx-trash'> </i></button>
+        </td>
+      `
+      tbody.appendChild(tr)
+    }
+
+    btnSalvar.onclick = e => {
+
+      if (stitulo.value == '' || sautor.value == '' || seditor.value == '' || sanoLivro.value == '' || sobs.value == '' || sdataCadastro.value == '') {
+        return
+      }
+
+      e.preventDefault();
+
+      if (id !== undefined) {
+        itens[id].titulo = stitulo.value
+        itens[id].autor = sautor.value
+        itens[id].editor = seditor.value
+        itens[id].anoLivro = sanoLivro.value
+        itens[id].obs = sobs.value
+        itens[id].dataCadastro = sdataCadastro.value
+      } else {
+        itens.push({ 'titulo': stitulo.value, 'autor': sautor.value, 'editor': seditor.value, 'anoLivro': sanoLivro.value, 'obs': sobs.value, 'dataCadastro': sdataCadastro.value })
+      }
+
+      setItensBD()
+
+      modal.classList.remove('active')
+      loadItens()
+      id = undefined
+    }
+
+    function loadItens() {
+      itens = getItensBD()
+      tbody.innerHTML = ''
+      itens.forEach((item, index) => {
+        insertItem(item, index)
+      })
+
+    }
+
+    const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
+    const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
+
+    loadItens()
+  </script>
+
+
+  <!--script login-->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

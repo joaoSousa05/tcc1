@@ -1,0 +1,164 @@
+* {
+    margin: 0px;
+    padding: 0px;
+   
+}
+body{
+    overflow: hidden;
+}
+/*header*/
+.container-fluid {
+    background-image: linear-gradient(to right, #16708A, #16708A);
+    height: 70px;
+}
+li{
+  
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+.aq{
+height: 100px;
+width: 200px;
+background-color: #4156A5;
+}
+.t{
+    height: 93vh;
+    background-color: #85acbb;
+}
+.r{
+    
+    height: 90vh;
+    width: 1350px;
+    
+}
+
+.logo {
+    margin-left: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+.logob{
+    height: 180px;
+    margin-left: 23px;
+    margin-bottom: 30px;
+}
+.h{
+    width: 230px;
+    margin: auto;
+}
+.usuario {
+    color: rgb(255, 255, 255);
+    margin-left: 50px;
+    font-size: 20PX;
+}
+
+label {
+    font-weight: bold;
+   
+}
+
+.imgFundo {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+
+}
+
+.navbar {
+    padding: 0px;
+}
+
+
+
+.btn-group {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+}
+
+.sair {
+    border-radius: 5px;
+    font-weight: bold;
+    border: none;
+    color: white;
+    background-color: red;
+    height: 35px;
+    width: 65px;
+    margin-right: 100px;
+}
+
+/*navegação de páginas*/
+.bntPag {
+    font-size: 20px;
+    font-family: 'Catamaran', sans-serif;
+    margin-bottom: 20px;
+    font-weight: bold;
+    height: 55px;
+    width: 200px;
+    border-radius: 15px;
+    border: none;
+    color: #4457A6;
+    background-color: #ffffff;
+}
+
+button {
+   
+    border: none;
+}
+.row{
+  width: 100%;
+}
+.botaoPag {
+     
+    margin: auto;
+}
+
+/*div principal*/
+#sistema {
+    font-family: 'Catamaran', sans-serif;
+    border-radius: 6px;
+    margin-top: 50px;
+    font-weight: bold;
+ text-align: center;
+    background-color: #17A3BB;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 47px;
+    
+}
+h4{
+    font-weight: bold;
+    color: #62503f;
+}
+h5{
+    font-weight: bold;
+    color: #867462;
+}
+
+.conteudoPrincipal {
+ 
+    width: 1000px;
+}
+
+.caixas {
+    margin: auto;
+    margin-bottom: 30px;
+    box-shadow: 11px 13px 10px rgba(0, 0, 0, 0.5);
+    padding-left: 30px;
+    background-color: rgba(255, 255, 255, 0.445);
+    height: 300px;
+    width: 300px;
+}
+
+.caixa5 {
+    width: 625px;
+}
+.imgAlarme{
+  padding-left: 5px;
+}
