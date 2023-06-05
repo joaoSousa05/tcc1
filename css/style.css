@@ -12,9 +12,28 @@ body {
 /*header*/
 .container-fluid {
     background-image: linear-gradient(to right, #16708A, #16708A);
+    
     height: 70px;
 }
-
+.lista{
+   border-radius: 15px 0px 0px 15px;
+    width: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+.lista1{
+   background-color: rgb(112, 180, 135); 
+}
+.lista2{
+    background-color: rgb(207, 114, 114); 
+ }
+ .lista3{
+    background-color: #916691; 
+ }
+ .lista4{
+    background-color: rgb(105, 123, 206); 
+ }
+ 
 li {
 
     margin-bottom: 20px;
@@ -146,6 +165,8 @@ button {
 }
 
 h4 {
+    margin-top: 20px;
+    text-align: center;
     font-weight: bold;
     color: #62503f;
 }
@@ -157,18 +178,19 @@ h5 {
 
 .conteudoPrincipal {
     padding-top: 27px;
-    width: 955px;
+    width: 979px;
     margin: auto;
 }
 
 .caixas {
-    border-radius: 15px;
-    margin: auto;
+    border-radius: 0px 15px 15px 0px;
+    margin-right: 30px;
+    width: 439px;
     box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
     padding-left: 30px;
     background-color: rgb(255, 255, 255);
     height: 280px;
-    width: 450px;
+   
 }
 
 .caixa5 {
