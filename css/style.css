@@ -22,16 +22,16 @@ body {
     padding: 0px;
 }
 .lista1{
-   background-color: rgb(112, 180, 135); 
+   background-color: #699a9b; 
 }
 .lista2{
     background-color: rgb(207, 114, 114); 
  }
  .lista3{
-    background-color: #916691; 
+    background-color: #c1572f; 
  }
  .lista4{
-    background-color: rgb(105, 123, 206); 
+    background-color: #5459af; 
  }
  
 li {
@@ -59,6 +59,8 @@ li {
 }
 
 .logo {
+    font-weight: bolder;
+    font-family: 'Catamaran', sans-serif;
     margin-left: 50px;
     color: rgb(255, 255, 255);
     font-size: 25px;
@@ -109,7 +111,11 @@ label {
     width: 100%;
     height: 50px;
 }
-
+.sair:hover {
+    /* Estilos ao passar o mouse */
+    box-shadow: 11px 11px 30px rgba(0, 0, 0, 0.219);
+    transform: scale(1.05);
+  }
 .sair {
     border-radius: 5px;
     font-weight: bold;
@@ -122,12 +128,23 @@ label {
 }
 
 /*navegação de páginas*/
+.bntPag:hover {
+    /* Estilos ao passar o mouse */
+    box-shadow: 11px 11px 30px rgba(0, 0, 0, 0.219);
+    transform: scale(1.05);
+  }
 .bntPag {
-    font-size: 20px;
+    padding: 10px 20px;
+  background-color: #ccc;
+  border: none;
+  color: #fff;
+  transition: background-color 0.3s ease;
+
+    font-size: 21px;
     font-family: 'Catamaran', sans-serif;
     margin-bottom: 20px;
     font-weight: bold;
-    height: 55px;
+    height: 62px;
     width: 200px;
     border-radius: 15px;
     border: none;
@@ -166,14 +183,14 @@ button {
 
 h4 {
     margin-top: 20px;
-    text-align: center;
+
     font-weight: bold;
-    color: #62503f;
+    color: black;
 }
 
 h5 {
     font-weight: bold;
-    color: #867462;
+    color: black;
 }
 
 .conteudoPrincipal {
